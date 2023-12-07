@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>VisitMyCard</title>
+    <meta name = "viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="styles.css">
+    <script src="p1script.js"></script>
+    <script src="tools/html2canvas.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/jszip@3.7.0/dist/jszip.min.js"></script>
+    <!-- <script src="https://cdn.tailwindcss.com"></script> -->
+</head>
+<body>
+    <header class="visitMyCardHead">
+        <h1>VisitMyCard.</h1>
+    </header>
+    <div class="bcg">
+    </div>
+    <section class="leftSide">
+        <div class="wraper">
+            <div class="inputf">
+                <div class="info">
+                    <h1>Information</h1>
+                </div>
+                <select class="fonts" onchange="fontChange(this)">
+                    <option value="TimesNewRoman">Times New Roman</option>
+                    <option value="Cambria">Cambria</option>
+                    <option value="Arial">Arial</option>
+                    <option value="Calibri">Calibri</option>
+                    <option value="Trebuchet">Trebuchet MS</option>
+                </select>
+                <input id="t1" type="text" name="text-input" maxlength="20" placeholder="Company Name" oninput="updateText(this.value, 'company-1', 'company-2', 'company-3', 'company-4', 'company-5', 'company-6', 'company-7', 'company-8')">
+                <input id="t2" type="text" name="text-input" maxlength="25" placeholder="Your Name" oninput="updateText(this.value, 'name-1', 'name-2', 'name-3', 'name-4', 'name-5', 'name-6', 'name-7', 'name-8')">
+                <input id="t3" type="text" name="text-input" maxlength="25" placeholder="Job Title" oninput="updateText(this.value, 'job-1', 'job-2', 'job-3', 'job-4', 'job-5', 'job-6', 'job-7', 'job-8')">
+                <input id="t4" type="tel" name="text-input"  maxlength="15" placeholder="Phone Number" oninput="updateText(this.value, 'phone-1', 'phone-2', 'phone-3', 'phone-4', 'phone-5', 'phone-6', 'phone-7', 'phone-8')">
+                <input id="t5" type="text" name="text-input" maxlength="40" placeholder="Email Address"  oninput="updateText(this.value, 'email-1', 'email-2', 'email-3', 'email-4', 'email-5', 'email-6', 'email-7', 'email-8')">
+                <input id="t6" type="text" name="text-input" maxlength="65" placeholder="Physical Address" oninput="updateText(this.value, 'address-1', 'address-2', 'address-3', 'address-4', 'address-5', 'address-6', 'address-7', 'address-8')">
+                <input id="t7" type="text" name="text-input" maxlength="40" placeholder="Social Media" oninput="updateText(this.value, 'social-1', 'social-2', 'social-3', 'social-4', 'social-5', 'social-6', 'social-7', 'social-8')">
+            </div>
+            
+            <div class="colorf">
+                <div class="pattern">
+                    <h1>Color</h1>
+                </div>
+                <button id="c1" class="highlighted colorButton white" onclick="changeColor('c1', 'white')"></button>
+                <button id="c2" class="colorButton bone" onclick="changeColor('c2', '#e3dac9')"></button>
+                <button id="c3" class="colorButton yellow" onclick="changeColor('c3', '#F8DE7E')"></button>
+                <button id="c4" class="colorButton pink" onclick="changeColor('c4', '#e5a7a7')"></button>
+                <button id="c5" class="colorButton green" onclick="changeColor('c5', '#A3C1AD')"></button>
+                <button id="c6" class="colorButton brown" onclick="changeColor('c6', '#986960')"></button>
+                <button id="c7" class="colorButton purple" onclick="changeColor('c7', '#86608E')"></button>
+                <button id="c8" class="colorButton darkgreen" onclick="changeColor('c8', '#1d6447')"></button>
+                <button id="c9" class="colorButton blue" onclick="changeColor('c9', '#09227a')"></button>
+                <button id="c10" class="colorButton black" onclick="changeColor('c10', '#343434')"></button>
+            </div>
+
+            <div class="patternf">
+                <div class="pattern">
+                    <h1>Design</h1>
+                </div>
+                
+                <div id="pb1" class="highlighted patternButton" onclick="toggleButtons('pb1', 'pt1', 'pt1b')">
+                    <div class="element1"></div>
+                </div>
+
+                <div id="pb2" class="patternButton" onclick="toggleButtons('pb2', 'pt2', 'pt2b')">
+                    <div class="element2"></div>
+                </div>
+
+                <div id="pb3" class="patternButton" onclick="toggleButtons('pb3', 'pt3', 'pt3b')">
+                    <div class="element3">
+                        <div class="element31"></div>
+                    </div>
+                </div>
+    
+                <div id="pb4"class="patternButton" onclick="toggleButtons('pb4', 'pt4', 'pt4b')">
+                    <div class="element4">
+                        <div class="element41"></div>
+                    </div>
+                </div>
+
+                <div id="pb7" class="patternButton" onclick="toggleButtons('pb7', 'pt7', 'pt7b')"">
+                    <div class="element7">
+                        <div class="element71"></div>
+                    </div>
+                </div>
+
+                <div id="pb6" class="patternButton"  onclick="toggleButtons('pb6', 'pt6', 'pt6b')">
+                    <div class="element6">
+                        <div class="element61"></div>
+                    </div>
+                </div>
+
+                <div id="pb5" class="patternButton" onclick="toggleButtons('pb5', 'pt5', 'pt5b')">
+                    <div class="element5">
+                        <div class="element51"></div>
+                        <div class="element51"></div>
+                        <div class="element51"></div>
+                        <div class="element51"></div>
+                        <div class="element51"></div>
+                        <div class="element51"></div>
+                    </div>
+                </div>
+
+                <div id="pb8" class="patternButton" onclick="toggleButtons('pb8', 'pt8', 'pt8b')">
+                    <div class="element8"></div>
+                </div>
+            </div>
+            <div id="help" class="help fade-in" style="display: none;">
+                <h1>Help</h1>
+                <p>  
+                    Don't know where to start? 
+                    Craft a personalized business card that reflects your unique style. 
+                    Input your information, choose a color and design, and even add your logo. 
+                    The top card is the back of your business card, and the bottom card showcases the front where your inputted information appears. 
+                    Explore a variety of fonts, designs, and colors while building your card. 
+                    Hover over the back (top card), and a button will appear; press it to attach a logo as a PNG. 
+                    Download your business card anytime for a PNG of both the meticulously designed front and back. 
+                    Your professional identity is just a download away! 
+                    Need a reset? Hit the trash button to clear your information and logo. 
+                    It's that easy to create and recreate your ideal business card.
+                </p>
+            </div>
+        </div>
+        <button id="helpButtonExit" class="helpButtonExit" title="Exit Help" style="display: none;" onclick="helpMeExit()">
+            <img src="assets/exit.svg" alt="SVG Icon">
+        </button>
+        <button id="helpButton" class="helpButton" title="Help" onclick="helpMe()">
+            <img src="assets/HelpButton.svg" alt="SVG Icon">
+        </button>
+        <!-- Tailwind -->
+        <!-- <div class="bg-white fixed bottom-5">About Me</div> -->
+    </section>
+    <section class="cardside">
+        <section class="cards">
+            <div id="frontCard" class="frontCard">
+
+                <div id="pt1" class="pattern1">
+                    <div id="pngPlace1" class="pngPlace1"></div>
+                </div>
+        
+                <div id="pt2" class="patt pattern21"style="display: none;">
+                    <div id="pngPlace2" class="pngPlace1"></div>
+                </div>
+
+                <div id="pt3" class="patt pattern3"style="display: none;">
+                    <div class="pattern31">
+                        <div class="patt pattern32">
+                            <div id="pngPlace3" class="pngPlace1"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div id="pt4" class="patt pattern4" style="display: none;">
+                    <div class="pattern41"></div>
+                    <div id="pngPlace4" class="pngPlace4"></div>
+                </div>
+        
+                <div id="pt5" class="patt pattern5"style="display: none;">
+                    <div class="pattern51"></div>
+                    <div class="pattern51"></div>
+                    <div class="pattern51"></div>
+                    <div class="pattern51"></div>
+                    <div class="pattern51"></div>
+                    <div class="pattern51"></div>
+                    <div class="pattern51"></div>
+                    <div class="pattern51"></div>
+                    <div class="pattern51"></div>
+                    <div class="pattern51"></div>
+                    <div class="pattern51"></div>
+                    <div class="pattern51"></div>
+                    <div class="patt pattern52">
+                        <div id="pngPlace5" class="pngPlace2"></div>
+                    </div>
+                </div>
+        
+                <div id="pt6" class="patt pattern6" style="display: none;">
+                    <div class="pattern61"></div>
+                    <div id="pngPlace6" class="pngPlace3"></div>
+                </div>
+
+                <div id="pt7" class="patt pattern7" style="display: none;">
+                    <div class="pattern71"></div>
+                    <div id="pngPlace7" class="pngPlace1"></div>
+                </div>
+        
+                <div id="pt8" class="patt pattern8" style="display: none;">
+                    <div id="pngPlace8" class="pngPlace1"></div>
+                </div>
+
+                <div class="optionsFrontCard">
+                    <label class="backOfCardText">Card Back</label>
+                    <label class="insert-png">
+                        <img src="assets/pngInsert.svg" alt="SVG Icon">
+                    </label>
+                    <input type="file" id="fileInput" accept=".png" title="Attach Logo png" onchange="handleFileSelect(event)">
+                </div>
+            </div>
+
+
+            <div id="backCard" class="backCard">
+
+                <div id="pt1b" class="pattern1">
+                    <div id="phone-1" class="font phone-1"></div>
+                    <div id="company-1" class="font company-1"></div>
+                    <div id="address-1" class="font address-1"></div>
+                    <div id="name-1" class="font name-1"></div>
+                    <div id="job-1" class="font job-1"></div>
+                    <div id="email-1" class="font email-1"></div>
+                    <div id="social-1" class="font social-1"></div>
+                </div>
+
+                <div id="pt2b" class="patt pattern2"style="display: none;">
+                    <div class="pattern21">
+                        <div id="phone-2" class="font phone-2"></div>
+                        <div id="company-2" class="font company-2"></div>
+                        <div id="address-2" class="font address-2"></div>
+                        <div id="name-2" class="font name-2"></div>
+                        <div id="job-2" class="font job-2"></div>
+                        <div id="email-2" class="font email-2"></div>
+                        <div id="social-2" class="font social-2"></div>
+                    </div>
+                </div>
+
+                <div id="pt3b" class="pattern3"style="display: none;">
+                    <div class="patt pattern31">
+                        <div class="pattern32">
+                            <div id="phone-3" class="font phone-3"></div>
+                            <div id="company-3" class="font company-3"></div>
+                            <div id="address-3" class="font address-3"></div>
+                            <div id="name-3" class="font name-3"></div>
+                            <div id="job-3" class="font job-3"></div>
+                            <div id="email-3" class="font email-3"></div>
+                            <div id="social-3" class="font social-3"></div>
+                        </div>
+                    </div>
+                </div>
+        
+                <div id="pt4b"  class="pattern4b"  style="display: none;">
+                    <div class="patt pattern41b">
+                        <div class="pattern42b"></div>
+                    </div>
+                    <div id="phone-4" class="font phone-4"></div>
+                    <div id="company-4" class="font company-4"></div>
+                    <div id="address-4" class="font address-4"></div>
+                    <div id="name-4" class="font name-4"></div>
+                    <div id="job-4" class="font job-4"></div>
+                    <div id="email-4" class="font email-4"></div>
+                    <div id="social-4" class="font social-4"></div>
+                </div>
+
+                <div id="pt5b" class="patt pattern5" style="display: none;">
+                    <div class="pattern51"></div>
+                    <div class="pattern51"></div>
+                    <div class="pattern51"></div>
+                    <div class="pattern51"></div>
+                    <div class="pattern51"></div>
+                    <div class="pattern51"></div>
+                    <div class="pattern51"></div>
+                    <div class="pattern51"></div>
+                    <div class="pattern51"></div>
+                    <div class="pattern51"></div>
+                    <div class="pattern51"></div>
+                    <div class="pattern51"></div>
+                    <div class="pattern53">
+                        <div id="phone-5" class="font phone-5"></div>
+                        <div id="company-5" class="font company-5"></div>
+                        <div id="address-5" class="font address-5"></div>
+                        <div id="name-5" class="font name-5"></div>
+                        <div id="job-5" class="font job-5"></div>
+                        <div id="email-5" class="font email-5"></div>
+                        <div id="social-5" class="font social-5"></div>
+                    </div>
+                </div>
+
+                <div id="pt6b" class="pattern6" style="display: none;">
+                    <div class="patt pattern61b"></div>
+                    <div id="phone-6" class="font phone-6"></div>
+                    <div id="company-6" class="font company-6"></div>
+                    <div id="address-6" class="font address-6"></div>
+                    <div id="name-6" class="font name-6"></div>
+                    <div id="job-6" class="font job-6"></div>
+                    <div id="email-6" class="font email-6"></div>
+                    <div id="social-6" class="font social-6"></div>
+                </div>
+
+                <div id="pt7b"class="pattern7" style="display: none;">
+                    <div class="patt pattern71"></div>
+                    <div id="phone-7" class="font phone-7"></div>
+                    <div id="company-7" class="font company-7"></div>
+                    <div id="address-7" class="font address-7"></div>
+                    <div id="name-7" class="font name-7"></div>
+                    <div id="job-7" class="font job-7"></div>
+                    <div id="email-7" class="font email-7"></div>
+                    <div id="social-7" class="font social-7"></div>
+                </div>
+
+                <div id="pt8b"class="pattern8b" style="display: none;">
+                    <div id="phone-8" class="font phone-8"></div>
+                    <div id="company-8" class="font company-8"></div>
+                    <div id="address-8" class="font address-8"></div>
+                    <div id="name-8" class="font name-8"></div>
+                    <div id="job-8" class="font job-8"></div>
+                    <div id="email-8" class="font email-8"></div>
+                    <div id="social-8" class="font social-8"></div>
+                </div>
+
+                <div class="optionsBackCard">
+                    <label class="frontOfCardText">Card Front</label>
+                </div>
+            </div>
+        </section>
+        <button class="downloadButton" title="Download My Card as png" onclick="downloadDivs()">
+            <img src="assets/downloadButton.svg" alt="SVG Icon">
+        </button>
+        <button class="clearButton" title="Clear My Card Information and Logo" onclick="clearText()">
+            <img src="assets/trashCan.svg" alt="SVG Icon">
+        </button>
+    </section>
+</body>
+<footer>
+    <p>
+        &copy; 2023 VisitMyCard. All rights reserved.
+        <a href="https://www.openai.com" target="_blank"><img src="assets/GitHub.svg" alt="SVG Icon"></a>
+        <a href="https://www.openai.com" target="_blank"><img src="assets/LinkedIn.svg" alt="SVG Icon"></a>
+        <a href="https://www.instagram.com/arslan_maslesa/" target="_blank"><img src="assets/Instagram.svg" alt="SVG Icon"></a>
+    </p>
+</footer>
+</html>
